@@ -1,0 +1,16 @@
+import express from "express"
+import { addToCart,removeFromCart,getCart } from "../controllers/cartController.js"
+import authMiddleware from "../middleware/auth.js";
+
+// At first we need to make a Router
+const cartRouter = express.Router();
+
+
+//API end points
+cartRouter.post("/add",authMiddleware,addToCart)
+cartRouter.post("/remove",authMiddleware,removeFromCart)
+cartRouter.post("/get",authMiddleware,getCart)
+
+export default cartRouter;
+
+
